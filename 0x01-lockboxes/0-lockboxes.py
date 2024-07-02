@@ -1,4 +1,4 @@
-#usr/bin/python3
+#usr/bin/python
 """ Module to implement lockbox techniques
 """
 
