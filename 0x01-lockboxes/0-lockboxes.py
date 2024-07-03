@@ -4,6 +4,9 @@
 
 
 def canUnlockAll(boxes):
+    """ Function to check if all the boxes
+    have the keys to open each other """
+
     box_keys = [0] * len(boxes)
     unlocked_boxes = 0
 
