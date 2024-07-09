@@ -1,24 +1,22 @@
 #!/usr/bin/python3
 """Module containing a function for minimum operations"""
 
-from typing import Tuple
 
-
-def copy_all(count: int, file: str) -> Tuple[int, str]:
+def copy_all(count, file):
     """Function to copy the entire string content and increase
     count value by 1"""
 
     return count + 1, file
 
 
-def paste(count: int, file: str, copy: str) -> Tuple[int, str]:
+def paste(count, file, copy):
     """Function to concatenate the last copied content and
     increment the count value by 1"""
 
     return count + 1, file + copy
 
 
-def check_factor(n: int, src: str) -> int:
+def check_factor(n, src):
     """Function to check if the current file length is a factor
     of the desired value"""
 
@@ -27,9 +25,12 @@ def check_factor(n: int, src: str) -> int:
     return 1
 
 
-def minOperations(n: int) -> int:
+def minOperations(n):
     """Function to determine the minimum number of operations required
     to rewrite a single letter"""
+
+    if not isinstance(n, int) or n < 1:
+        return 0
 
     file = 'H'
     count = 0
