@@ -1,19 +1,18 @@
 #!/usr/bin/python3
 """Script to read stdin line by line and compute metrics"""
 
-from sys import stdin, stdout
+from sys import stdin
 import ipaddress
 from datetime import datetime
 
 
 def print_output() -> None:
-    """Function to print output"""
+    """Function to print the dict of status codes"""
 
     print(f"File size: {file_size}")
     for key, value in status_codes.items():
         if value > 0:
             print(f"{key}: {value}")
-    stdout.flush()
 
 
 if __name__ == "__main__":
