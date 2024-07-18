@@ -5,6 +5,7 @@ from sys import stdin
 import ipaddress
 from datetime import datetime
 
+
 x = 1
 file_size = 0
 status_codes = {
@@ -56,13 +57,15 @@ while (x):
     except KeyboardInterrupt:
         print(f"File size: {file_size}")
         for key, value in status_codes.items():
-            print(f"{key}: {value}")
+            if value > 0:
+                print(f"{key}: {value}")
         break
 
     if x >= 10:
         print(f"File size: {file_size}")
         for key, value in status_codes.items():
-            print(f"{key}: {value}")
+            if value > 0:
+                print(f"{key}: {value}")
         x = 1
     else:
         x += 1
