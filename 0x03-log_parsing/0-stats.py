@@ -5,7 +5,8 @@ from sys import stdin, stdout
 import ipaddress
 from datetime import datetime
 
-def print_output():
+
+def print_output() -> None:
     """Function to print output"""
 
     print(f"File size: {file_size}")
@@ -13,6 +14,7 @@ def print_output():
         if value > 0:
             print(f"{key}: {value}")
     stdout.flush()
+
 
 if __name__ == "__main__":
     x = 1
