@@ -34,7 +34,11 @@ if __name__ == "__main__":
                 # Collect the rest of the line minus ip
                 line = line.split('-', maxsplit=1)[1]
             except ipaddress.AddressValueError:
+                # If the ip passed exceeds the regular range, skip
                 continue
+            except ValueError:
+                # If is a string of letters, leave it to the potential DNS
+                pass
 
             # Retrieve and check the date sub-string format
             start_date = line.find('[')
