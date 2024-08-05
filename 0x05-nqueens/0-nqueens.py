@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # If the wrong number of values is passed, abort
     if count != 2:
-        print(f"Usage: {name} N")
+        print(f"Usage: nqueens N")
         sys.exit(1)
 
     # Retrieve N and confirm it to be an int
