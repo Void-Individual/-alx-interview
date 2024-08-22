@@ -7,12 +7,21 @@ from typing import List
 
 
 def count_coins(coins, total):
-    if (coins is None) or (total == 0):
+    # print(f"The coins for this round: {coins}")
+    if not coins or (total == 0):
+        if total > 0:
+            return -1
         return 0
     coin = coins[0]
-    # print(f"{coin} gives {(total / coin)}")
-    count = int(total / coin) + count_coins(coins[1:], total % coin)
-    return count
+    coin_value = int(total / coin)
+    balance = total % coin
+    # print(f"{coin} gives {coin_value} coins, to balance {balance}")
+
+    check_next = count_coins(coins[1:], balance)
+    if check_next != -1:
+        return coin_value + check_next
+
+    return check_next
 
 
 def makeChange(coins: List[int], total: int) -> int:
@@ -33,13 +42,20 @@ def makeChange(coins: List[int], total: int) -> int:
     if total < 1:
         return count
     coins.sort(reverse=True)
-
-    count = count_coins(coins, total)
+    split_coins = coins[:]
+    for x in range(len(coins)):
+        count = count_coins(split_coins, total)
+        if count > 0:
+            break
+        # print("Starting over ----\n\n")
+        split_coins = coins[:]
+        del split_coins[(len(coins) - x - 2)]
+        # print(f"New coins: {split_coins}")
 
     return int(count)
 
 
-# print(makeChange([1, 2, 3, 5, 6, 4], 100))
+# print(makeChange([2, 3, 5, 6, 9], 100))
 # print(makeChange([1, 2, 25], 100))
 # print(makeChange([1, 2, 25], 37))
 # print(makeChange([1256, 54, 48, 16, 102], 1453))
