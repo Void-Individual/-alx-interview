@@ -19,7 +19,7 @@ def count_coins(coins, total):
             return -1
         return 0
 
-    coin = coins[0] # Select the coin for this iteration
+    coin = coins[0]  # Select the coin for this iteration
     # The coin value from the total
     coin_value = int(total / coin)
     # The balance after you remove the coin value
@@ -51,7 +51,7 @@ def makeChange(coins: List[int], total: int) -> int:
     """
 
     count = 0
-    if total < 1:
+    if not coins or total < 1:
         return count
 
     # Arrange the coins in descending order
