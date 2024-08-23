@@ -51,8 +51,11 @@ def makeChange(coins: List[int], total: int) -> int:
     """
 
     count = 0
-    if not coins or total < 1:
+    if total < 1:
         return count
+
+    if not coins:
+        return -1
 
     # Arrange the coins in descending order
     coins.sort(reverse=True)
