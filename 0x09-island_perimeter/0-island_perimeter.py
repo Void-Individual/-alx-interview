@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """Module to find the perimeter of a grid island"""
 
-from typing import List
 
-
-def island_perimeter(grid: List[List[int]]) -> int:
+def island_perimeter(grid):
     """Function to return the perimeter of the island described in grid
     which is a list of list of integers"""
 
@@ -29,3 +27,13 @@ def island_perimeter(grid: List[List[int]]) -> int:
                     perimeter += 1
 
     return perimeter
+
+# if __name__ == "__main__":
+#    grid = [
+#        [0, 0, 0, 0, 0, 0],
+#        [0, 1, 0, 1, 1, 0],
+#        [0, 1, 0, 0, 1, 0],
+#        [0, 1, 1, 1, 1, 0],
+#        [0, 0, 0, 0, 0, 0]
+#    ]
+#    print(island_perimeter(grid))
