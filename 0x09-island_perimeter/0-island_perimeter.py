@@ -7,33 +7,22 @@ def island_perimeter(grid):
     which is a list of list of integers"""
 
     perimeter = 0
+    rows = len(grid)
+    columns = len(grid[0])
 
-    # Set a range restriction to avoid the top and bottom waters
-    for row in range(1, len(grid) - 1):
-        # Set range to avoid leftmost and rightmost waters
-        for column in range(1, len(grid[row]) - 1):
+    for row in range(rows):
+        for column in range(columns):
             # Check if the cell is a land square
             if grid[row][column] == 1:
-                if grid[row - 1][column] == 0:
+                if (row == 0 or grid[row - 1][column] == 0):
+                    perimeter += 1
+                if (row == rows - 1 or grid[row + 1][column] == 0):
                     perimeter += 1
 
-                if grid[row + 1][column] == 0:
+                if (column == 0 or grid[row][column - 1] == 0):
                     perimeter += 1
 
-                if grid[row][column - 1] == 0:
-                    perimeter += 1
-
-                if grid[row][column + 1] == 0:
+                if (column == columns - 1 or grid[row][column + 1] == 0):
                     perimeter += 1
 
     return perimeter
-
-# if __name__ == "__main__":
-#    grid = [
-#        [0, 0, 0, 0, 0, 0],
-#        [0, 1, 0, 1, 1, 0],
-#        [0, 1, 0, 0, 1, 0],
-#        [0, 1, 1, 1, 1, 0],
-#        [0, 0, 0, 0, 0, 0]
-#    ]
-#    print(island_perimeter(grid))
