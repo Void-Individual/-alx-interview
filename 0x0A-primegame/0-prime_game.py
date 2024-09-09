@@ -57,8 +57,10 @@ def isWinner(x, nums):
         # Check the winner of the last round and score them
         if check_player == 0:
             player['Maria'] += 1
+            check_player = 1
         else:
             player['Ben'] += 1
+            check_player = 0
 
     # If Maria and ben have equal poins, then there is no winner
     if player['Maria'] == player['Ben']:
